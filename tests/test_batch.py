@@ -85,6 +85,26 @@ def test_batch_skips_pairs_already_saved(tmp_path) -> None:
     assert runner.calls == [("record-1", "structured_reasoning")]
 
 
+def test_batch_reports_progress_for_each_new_result(tmp_path) -> None:
+    runner = FakeRunner()
+    progress_updates: list[tuple[int, int, str]] = []
+
+    run_evaluation_batch(
+        records=[make_record("record-1")],
+        strategies=["direct_answer", "structured_reasoning"],
+        runner=runner,
+        output_path=str(tmp_path / "results.jsonl"),
+        on_result=lambda result, completed, total: progress_updates.append(
+            (completed, total, result.strategy)
+        ),
+    )
+
+    assert progress_updates == [
+        (1, 2, "direct_answer"),
+        (2, 2, "structured_reasoning"),
+    ]
+
+
 def test_batch_rejects_negative_delay(tmp_path) -> None:
     runner = FakeRunner()
 

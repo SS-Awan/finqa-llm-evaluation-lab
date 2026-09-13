@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable, Sequence
 from time import sleep
-from typing import Any, Sequence
+from typing import Any
 
 from finqa_eval.dataset import FinQARecord
 from finqa_eval.results import (
@@ -15,12 +16,16 @@ from finqa_eval.results import (
 from finqa_eval.schemas import StrategyName
 
 
+ProgressCallback = Callable[[EvaluationResult, int, int], None]
+
+
 def run_evaluation_batch(
     records: Sequence[FinQARecord],
     strategies: Sequence[StrategyName],
     runner: Any,
     output_path: str,
     delay_seconds: float = 0.0,
+    on_result: ProgressCallback | None = None,
 ) -> list[EvaluationResult]:
     """Evaluate unfinished pairs, saving each result immediately."""
     if delay_seconds < 0:
@@ -38,12 +43,15 @@ def run_evaluation_batch(
 
     new_results: list[EvaluationResult] = []
 
-    for index, (record, strategy) in enumerate(pending_pairs):
+    for index, (record, strategy) in enumerate(pending_pairs, start=1):
         result = runner.evaluate_record(record, strategy)
         append_result(output_path, result)
         new_results.append(result)
 
-        if delay_seconds and index < len(pending_pairs) - 1:
+        if on_result is not None:
+            on_result(result, index, len(pending_pairs))
+
+        if delay_seconds and index < len(pending_pairs):
             sleep(delay_seconds)
 
     return new_results
