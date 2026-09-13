@@ -218,3 +218,5 @@ __marimo__/
 .streamlit/secrets.toml
 # Downloaded source datasets
 /data/raw/
+# Local API credentials
+.env
