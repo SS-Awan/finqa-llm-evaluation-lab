@@ -24,6 +24,9 @@ class EvaluationResult:
     plan_valid: bool | None
     plan_answer: str | None
     latency_ms: int
+    evidence: list[str] | None = None
+    reasoning_summary: str | None = None
+    calculation_plan: dict[str, object] | None = None
     error: str | None = None
     created_at: str = field(
         default_factory=lambda: datetime.now(UTC).isoformat()

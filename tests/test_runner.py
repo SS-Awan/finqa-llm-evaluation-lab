@@ -3,7 +3,11 @@ from typing import Any
 from finqa_eval.dataset import FinQARecord
 from finqa_eval.gemini_client import GenerationError
 from finqa_eval.runner import EvaluationRunner
-from finqa_eval.schemas import DirectAnswerResponse, ProgramOfThoughtResponse
+from finqa_eval.schemas import (
+    DirectAnswerResponse,
+    ProgramOfThoughtResponse,
+    StructuredReasoningResponse,
+)
 
 
 def make_record() -> FinQARecord:
@@ -26,7 +30,11 @@ def make_record() -> FinQARecord:
 
 
 class FakeClient:
-    def __init__(self, response: Any | None = None, error: Exception | None = None) -> None:
+    def __init__(
+        self,
+        response: Any | None = None,
+        error: Exception | None = None,
+    ) -> None:
         self.response = response
         self.error = error
         self.calls: list[tuple[str, object]] = []
@@ -49,10 +57,27 @@ def test_runner_scores_correct_direct_answer() -> None:
     assert result.output_valid is True
     assert result.answer_correct is True
     assert result.plan_valid is None
+    assert result.evidence is None
     assert "What is the change in revenue?" in client.calls[0][0]
 
 
-def test_runner_executes_program_of_thought_plan() -> None:
+def test_runner_preserves_structured_reasoning_details() -> None:
+    response = StructuredReasoningResponse(
+        evidence=["2014 revenue: 5735", "2015 revenue: 5829"],
+        reasoning_summary="Subtract 5735 from 5829.",
+        final_answer="94",
+    )
+    runner = EvaluationRunner(client=FakeClient(response=response), model="test-model")
+
+    result = runner.evaluate_record(make_record(), "structured_reasoning")
+
+    assert result.answer_correct is True
+    assert result.evidence == ["2014 revenue: 5735", "2015 revenue: 5829"]
+    assert result.reasoning_summary == "Subtract 5735 from 5829."
+    assert result.calculation_plan is None
+
+
+def test_runner_executes_and_preserves_program_of_thought_plan() -> None:
     response = ProgramOfThoughtResponse.model_validate(
         {
             "evidence": ["2014 revenue: 5735", "2015 revenue: 5829"],
@@ -74,6 +99,13 @@ def test_runner_executes_program_of_thought_plan() -> None:
     assert result.answer_correct is True
     assert result.plan_valid is True
     assert result.plan_answer == "94"
+    assert result.evidence == ["2014 revenue: 5735", "2015 revenue: 5829"]
+    assert result.calculation_plan is not None
+
+    steps = result.calculation_plan["steps"]
+    assert isinstance(steps, list)
+    assert isinstance(steps[0], dict)
+    assert steps[0]["operation"] == "subtract"
 
 
 def test_runner_records_generation_failure() -> None:

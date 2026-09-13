@@ -76,6 +76,7 @@ class EvaluationRunner:
             )
 
         final_answer = response.final_answer
+        evidence, reasoning_summary, calculation_plan = _response_details(response)
         plan_valid: bool | None = None
         plan_answer: str | None = None
 
@@ -97,6 +98,9 @@ class EvaluationRunner:
                     plan_valid=plan_valid,
                     plan_answer=None,
                     latency_ms=_elapsed_ms(started_at),
+                    evidence=evidence,
+                    reasoning_summary=reasoning_summary,
+                    calculation_plan=calculation_plan,
                     error=str(error),
                 )
 
@@ -111,6 +115,9 @@ class EvaluationRunner:
             plan_valid=plan_valid,
             plan_answer=plan_answer,
             latency_ms=_elapsed_ms(started_at),
+            evidence=evidence,
+            reasoning_summary=reasoning_summary,
+            calculation_plan=calculation_plan,
         )
 
 
@@ -125,6 +132,23 @@ def _response_model_for_strategy(strategy: StrategyName) -> type[BaseModel]:
         return ProgramOfThoughtResponse
 
     raise ValueError(f"Unsupported strategy: {strategy}")
+
+
+def _response_details(
+    response: BaseModel,
+) -> tuple[list[str] | None, str | None, dict[str, object] | None]:
+    """Extract analysis fields while preserving the strategy's response format."""
+    if isinstance(response, StructuredReasoningResponse):
+        return response.evidence, response.reasoning_summary, None
+
+    if isinstance(response, ProgramOfThoughtResponse):
+        return (
+            response.evidence,
+            None,
+            response.calculation_plan.model_dump(mode="json"),
+        )
+
+    return None, None, None
 
 
 def _answer_is_correct(expected_answer: str, predicted_answer: str) -> bool:
