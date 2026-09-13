@@ -1,0 +1,693 @@
+{
+  "schema_version": 1,
+  "dataset": "FinQA",
+  "source_split": "test",
+  "source_revision": "0f16e2867befa6840783e58be38c9efb9229d742",
+  "selection_seed": "finqa-evaluation-lab-v1",
+  "selection_method": "stratified deterministic hash ranking",
+  "strata_quotas": {
+    "table|1": 16,
+    "table|2": 20,
+    "table|3+": 12,
+    "text|1": 8,
+    "text|2": 10,
+    "text|3+": 8,
+    "both|1": 6,
+    "both|2": 8,
+    "both|3+": 8
+  },
+  "records": [
+    {
+      "record_id": "AAL/2013/page_18.pdf-3",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "026f8d5357d044ec1f4dbdd2f67ed745a080b04265a74c9800725350f43a42ba"
+    },
+    {
+      "record_id": "AAPL/2006/page_100.pdf-3",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "max",
+      "selection_rank": "00a8fecc1fa8325df7595c32ba79749bb3d6442f3dd206868aecce8661e52da9"
+    },
+    {
+      "record_id": "ABMD/2005/page_29.pdf-4",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "04095bd67b449a04fe2fddd465be2742e00cf04124029d4091509baa4e9524a2"
+    },
+    {
+      "record_id": "ABMD/2006/page_43.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "051cce1c731062eef0d0c9e92c63f1ce2032cbe30e599df7b74ccd17e373a41f"
+    },
+    {
+      "record_id": "ABMD/2012/page_79.pdf-4",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "049c21cb9d0b0495e1c1337e431aca014e609daab74e0feaab5fbea5c8b4c781"
+    },
+    {
+      "record_id": "AES/2001/page_85.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "multiply",
+      "selection_rank": "076a130ac94ef5585c28fb15d6f664c023a8dbb27f02e903c2ab48c173d08de9"
+    },
+    {
+      "record_id": "ALLE/2015/page_24.pdf-1",
+      "evidence_type": "text",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "0c4ae97b344d46e7820d86614c11ef18a08a01799f118f634886b22103fa7842"
+    },
+    {
+      "record_id": "AMAT/2013/page_37.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "3281891df8bfff4aef5f83dc6cc2d248267dbbb33a86fda114282c65b9ac993e"
+    },
+    {
+      "record_id": "AMT/2003/page_27.pdf-1",
+      "evidence_type": "both",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "02e976412340fac0ea52a333024dd7a512b4d65416b157412eb8a99a922d2b9f"
+    },
+    {
+      "record_id": "AMT/2005/page_102.pdf-1",
+      "evidence_type": "text",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "12a406c3b2ad0be42dac659ec1a4b0cd05fe3b3d7d448a45c1f753a1ab277fc7"
+    },
+    {
+      "record_id": "AMT/2007/page_29.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "add",
+      "selection_rank": "12bebb457d85d4e1706f627a9eff8eeeb19f4e4aa299a0dbec5c4472782092f0"
+    },
+    {
+      "record_id": "AMT/2010/page_99.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "04cb778ca1e88c13519df4024377ec9ca1fe4548d78053a5f8dad1ef47c08f40"
+    },
+    {
+      "record_id": "ANET/2015/page_156.pdf-1",
+      "evidence_type": "both",
+      "program_depth": "2",
+      "first_operation": "multiply",
+      "selection_rank": "0faa63c1e7e6c5b5d63eb15fe80b531a47316e44cf818b13a2a51b78072e497b"
+    },
+    {
+      "record_id": "AON/2007/page_171.pdf-3",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "average",
+      "selection_rank": "0337e14e21af8abe810ba7c5377d3a6a289db2b534d0975c2086dd684df14070"
+    },
+    {
+      "record_id": "AOS/2010/page_18.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "032fffcb27a78b1362b43aa8ec91b21c8ce1ef85ce052dd306e2c868ee572065"
+    },
+    {
+      "record_id": "AOS/2010/page_18.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "25e550edeefe1b18c0fb220bf10ba7ec94d9be19fe21eb95d3828f287df84abc"
+    },
+    {
+      "record_id": "APD/2018/page_30.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "divide",
+      "selection_rank": "0c12ad106355119d12615b32b4d90f75eade98b6169f3e548f8630f973ce69bb"
+    },
+    {
+      "record_id": "BKNG/2016/page_33.pdf-3",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "0718d88982ce9c282221b2e65bfeb1f5f32c1dcee15204b9f51b5deecf972101"
+    },
+    {
+      "record_id": "BKNG/2016/page_33.pdf-4",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "068bdcde0bbaaf1421d68d1d38cf377ca549d8ba3672b9c07e54aa6c6b3fc57b"
+    },
+    {
+      "record_id": "BLK/2017/page_121.pdf-3",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0b371b3f8c935a4c2ab78aacb3f0feeac5a03f7ba912bae870209bd305130d16"
+    },
+    {
+      "record_id": "CB/2008/page_229.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "11c4893ce78b348616a65e4b53665c3bc664a95bf756a9f69319ad0f25d555d8"
+    },
+    {
+      "record_id": "CDW/2015/page_93.pdf-2",
+      "evidence_type": "both",
+      "program_depth": "3+",
+      "first_operation": "divide",
+      "selection_rank": "335122193e76946e36da1a37dabc216af4ac0abc5f3989ec3c91e80db52af07e"
+    },
+    {
+      "record_id": "CMCSA/2015/page_112.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "subtract",
+      "selection_rank": "05471de945ec2f40b65083b482172aaa133f78235b611b8095139fdba5eb30d0"
+    },
+    {
+      "record_id": "CME/2017/page_40.pdf-1",
+      "evidence_type": "both",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "5d5d224e8c52f5069ce8146d4ad8ce7f8e171a012a4989cfcbeddb947b6d7a53"
+    },
+    {
+      "record_id": "DISCA/2011/page_49.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0002aee4bc5cf05968cfa429befe28346ce809bca5f2e3024edb3c09db793e2e"
+    },
+    {
+      "record_id": "DISCA/2014/page_64.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "15b8273d5a25002ae482bad001f4316f47f81899c93aa8e8605648b9798d8bae"
+    },
+    {
+      "record_id": "DISH/2011/page_122.pdf-3",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "04ce729bee00e4b4c589c4d417f503763d75e8683f2d82d6e6e255b41c7cf32d"
+    },
+    {
+      "record_id": "DRE/2002/page_15.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "2dc1fb7459759a9012952c0e808f2d5e5eaaa8987cfe521ceeed8a2350e8a15c"
+    },
+    {
+      "record_id": "DRE/2012/page_40.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "00635e167e213d215c96c0d647fb2f26448213696f4d7cc03f955675287ad571"
+    },
+    {
+      "record_id": "DVN/2015/page_79.pdf-2",
+      "evidence_type": "both",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "9367fcf647244ec1811b441fa0493b0a7ba936017bf5c8abb00fa6dbfd009b98"
+    },
+    {
+      "record_id": "DVN/2018/page_35.pdf-2",
+      "evidence_type": "both",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "6e298fb3a862382d9e41a40bcf51d84757fb76e680fab517d0509a3602865cf6"
+    },
+    {
+      "record_id": "ECL/2017/page_79.pdf-1",
+      "evidence_type": "both",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "18e565e6e2202a50d0c45603e9d1026cd657c107d71a7a038bcb7fcea19b7028"
+    },
+    {
+      "record_id": "ETFC/2012/page_24.pdf-1",
+      "evidence_type": "both",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "0a41a92ad05c176bc748f41c1c11a90ddd7903122c4900b6ede37399ab2cc699"
+    },
+    {
+      "record_id": "ETR/2004/page_212.pdf-4",
+      "evidence_type": "both",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "220b0f3d8fdde2e1135b3b70e363f6315e0439e473452cb9df8ae9ac04115568"
+    },
+    {
+      "record_id": "ETR/2013/page_21.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "01b8a2e6c0d469f04bd12c006761d5b86e43657d71708ffbdaf645949e564d12"
+    },
+    {
+      "record_id": "ETR/2016/page_374.pdf-1",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "add",
+      "selection_rank": "0d2e3db97e8f595abfaf7d0067249fd81ed33e806cd02de912cbaa9e13f1a6ba"
+    },
+    {
+      "record_id": "ETR/2017/page_143.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "26e741bdacc3434e3fcd037d6abe97bcbd1c361d659abdd488089d6711e196d1"
+    },
+    {
+      "record_id": "ETR/2017/page_143.pdf-2",
+      "evidence_type": "both",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "158977f3bf995a8d71cdd25fc5c5ff82305b33dd21015f165d362496f07ddeb4"
+    },
+    {
+      "record_id": "FIS/2012/page_48.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0f8981bf13e96ae31de398c57ba3e520a918637e6b7b57418e3b947649cad77f"
+    },
+    {
+      "record_id": "FIS/2016/page_31.pdf-4",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "1f1f0b6cc19d6cee4b6b6de0659566d269156c2dfa57bc3899f9c3fdf6c02a47"
+    },
+    {
+      "record_id": "FIS/2016/page_9.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "15e7a9efa56edca4aaa6306d05f71f5f40bc0ec561dc81a59758496868426fd0"
+    },
+    {
+      "record_id": "FIS/2017/page_64.pdf-1",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "01d865645f0fb2331e2ee3df6e143d31682043aeb920f5ab462377f29820ac56"
+    },
+    {
+      "record_id": "GIS/2019/page_68.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "08cc47543d14df03cc9880237ae72a3e5b6c2c83804221ca9766f64b7f1d3821"
+    },
+    {
+      "record_id": "GPN/2010/page_89.pdf-4",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "multiply",
+      "selection_rank": "39302291a3406c82dee79a029befc10490997650135a1c82f0f4335a3e8f1098"
+    },
+    {
+      "record_id": "GPN/2013/page_87.pdf-3",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "multiply",
+      "selection_rank": "1046b1590c092f143782071a5462de8f2ddc414dc524932850b0f7cfa830c992"
+    },
+    {
+      "record_id": "GPN/2013/page_87.pdf-4",
+      "evidence_type": "both",
+      "program_depth": "1",
+      "first_operation": "add",
+      "selection_rank": "2107ecfeb3a5ff3a8a2770e8461dbe69e890b72d4a8bc67aff98b0380ea080de"
+    },
+    {
+      "record_id": "GRMN/2008/page_85.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "divide",
+      "selection_rank": "344721aa9e84df23d0affb3b7e7ec739a89a390c869a59dfd060a4bdca34650a"
+    },
+    {
+      "record_id": "GS/2012/page_121.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0795da7ac65234abccaef3382095d4138592fe827bc312c5f980415cffeeb9bb"
+    },
+    {
+      "record_id": "GS/2014/page_74.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "07406da751e8cc55b9008cfcaa23c6ad7c42caa760775857ff9e6e89c403b020"
+    },
+    {
+      "record_id": "GS/2018/page_69.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "39a989ce237bd18f1626510df97a179240e6cd856d1b58197a1ac74cffe1df84"
+    },
+    {
+      "record_id": "HOLX/2007/page_93.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "071ea2e6f9c9b505135461e22105a68dd9c814d01e6c77ace94f259aac8f9305"
+    },
+    {
+      "record_id": "HOLX/2009/page_127.pdf-4",
+      "evidence_type": "text",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "0fdf477ed6ebc148ec3b0b118cfc0ece1574dc30d3aea45070609c4b76ef6144"
+    },
+    {
+      "record_id": "HWM/2015/page_173.pdf-1",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "divide",
+      "selection_rank": "01db4bbf96fe5ac34b71d494f651a78317eb8f12b93c5fe9fbba25f7b16f913b"
+    },
+    {
+      "record_id": "HWM/2018/page_96.pdf-2",
+      "evidence_type": "both",
+      "program_depth": "3+",
+      "first_operation": "multiply",
+      "selection_rank": "751765d47c6ebd39b8caaf19166065dfdf96638022dfd229ad49a0c383530f41"
+    },
+    {
+      "record_id": "ILMN/2003/page_58.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0f7675712b70a476cefc677bdf3f50b9b22e9737346bed5b62c1edd01ba1f106"
+    },
+    {
+      "record_id": "INTC/2013/page_31.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "074dd7a892ce5a91d6b916739d9f7b7a25ba8c8980f465df5849338da85bf905"
+    },
+    {
+      "record_id": "IP/2006/page_30.pdf-3",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "045676057ac53305c2ca31ad1c8614c05e74b0508f127b34b14ac539b37319cd"
+    },
+    {
+      "record_id": "IP/2006/page_35.pdf-3",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "068673f46cdc6cb4e346dbb4d7912356758302973fa0faccba0b1762d96ca175"
+    },
+    {
+      "record_id": "IPG/2006/page_77.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "0fb75cb4bc6738fe2501a3a81460bf6c287ff04453dae90acad0bb0aa404da05"
+    },
+    {
+      "record_id": "IPG/2006/page_77.pdf-4",
+      "evidence_type": "both",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "03c48a60e99dae91a987cf732334f56a0ca881979352e4322d052cdfe9c0f2e7"
+    },
+    {
+      "record_id": "IPG/2017/page_92.pdf-2",
+      "evidence_type": "both",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "81beb35be539d105e1e9ba99a4e4ee8d07917fbe5f0613e08d48454b6cc5d0e4"
+    },
+    {
+      "record_id": "JPM/2003/page_106.pdf-4",
+      "evidence_type": "text",
+      "program_depth": "1",
+      "first_operation": "subtract",
+      "selection_rank": "03cf36bbe5b9f9b92d7776b10fc8676ca0ebeac68853316f3b156749c6f41dd0"
+    },
+    {
+      "record_id": "JPM/2014/page_122.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0d1f33b1f732ded08da053c2650b659880a390a3e4774988b7def42d9ba08a87"
+    },
+    {
+      "record_id": "JPM/2014/page_70.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "0399f06e678086f7b6cdb0af2dca850f75129df06afa97ecf75a30d6153dc78a"
+    },
+    {
+      "record_id": "JPM/2018/page_90.pdf-3",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "multiply",
+      "selection_rank": "15a63535315daf28849dec3dee54a40554407d194a1067c6e1c6ff3640013d83"
+    },
+    {
+      "record_id": "JPM/2018/page_90.pdf-4",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "12f06189b3c83703f8bdc2458ad8db984e2d8c9637cf7de66870623f2ca87912"
+    },
+    {
+      "record_id": "K/2006/page_52.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "0ef3b59b9a771da5e3bea61d4d15aff5129af9ab52004dfeb0948f8fc563ecf8"
+    },
+    {
+      "record_id": "L/2009/page_84.pdf-4",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0d43b9e62f311380d5d88f0d8a194f2ceed90f2b258e732cce8141c16d0f4189"
+    },
+    {
+      "record_id": "LMT/2014/page_77.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "0eb921427e697577c2aaad1fe6ca079e8d837cfdd5ac23c80bed1a1290ac7961"
+    },
+    {
+      "record_id": "LMT/2014/page_91.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "3715d73e11ba462a62d99279bc611ce680eafe9d6fa37eaa6552d34f990c638b"
+    },
+    {
+      "record_id": "LMT/2015/page_89.pdf-4",
+      "evidence_type": "text",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "0f3d7a92246dde09b9efb54efc36ec45041af42cba38c6b61d0862b6c11941c6"
+    },
+    {
+      "record_id": "LMT/2016/page_49.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0937d883482ae6e65ac8e4497b8c441e62b3e751a1e0f4191abfc8095336b7a6"
+    },
+    {
+      "record_id": "MAS/2017/page_27.pdf-3",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "078bb98328011e9f87920de215f3de3d1a835585af3b132b2db92dbaca40f632"
+    },
+    {
+      "record_id": "MO/2014/page_62.pdf-1",
+      "evidence_type": "both",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "10ce4725a47692d8477c43ab3750ffd8702e8cf883d2b4beb5e0b18ce504f7b3"
+    },
+    {
+      "record_id": "MSI/2012/page_87.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "22b59315381aa915b0257ff2f03fa3cf6e2a4518e3d54040b55004c04b692455"
+    },
+    {
+      "record_id": "NCLH/2018/page_97.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0674c0827737f024fb18e5e79896009b091f2803bf7cbf9556690eb7cff8e365"
+    },
+    {
+      "record_id": "PNC/2012/page_247.pdf-1",
+      "evidence_type": "text",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "020c3d281f186423cad7f8fdda8e644baed88e6b864bf1c1b08c8c9babfda7a2"
+    },
+    {
+      "record_id": "PNC/2012/page_247.pdf-3",
+      "evidence_type": "text",
+      "program_depth": "3+",
+      "first_operation": "subtract",
+      "selection_rank": "322bc68336a5e5f52263024ec2be02ec1fe3cab9a9e7674defe89aabc2b86e57"
+    },
+    {
+      "record_id": "PNC/2014/page_111.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "1",
+      "first_operation": "subtract",
+      "selection_rank": "09a8adc8d020eafabfdb3d9aacb003048cff053f3c0e3367261f623d3fbf6449"
+    },
+    {
+      "record_id": "RSG/2009/page_140.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "013b1230dcc25410f9fa72125c7445134de2ec275a7d85c71d9d89e453f618ce"
+    },
+    {
+      "record_id": "RSG/2010/page_98.pdf-2",
+      "evidence_type": "both",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "044ef1bf90a02ed1c9e4009ea7ee5c0f5b3504ca129f0ea01f27e40e41358840"
+    },
+    {
+      "record_id": "RSG/2013/page_123.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "065f59d3f4cabde894f9683e5663294421edc88d75bd8e229d021950c1466297"
+    },
+    {
+      "record_id": "SLG/2001/page_48.pdf-3",
+      "evidence_type": "text",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "1ecb46e080bafeb5938dd3030d3852c6cec01067b42320cd2de293232a5b2ed7"
+    },
+    {
+      "record_id": "SLG/2011/page_91.pdf-1",
+      "evidence_type": "text",
+      "program_depth": "1",
+      "first_operation": "add",
+      "selection_rank": "02f7c39ddf26aead79088d38c8a189aaeff22d0e1ad07178f802ea142dedd33f"
+    },
+    {
+      "record_id": "SLG/2011/page_91.pdf-6",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "010686417ea36d10fd53a7e134d5838d9dc91f19d99680847e268316c92487e1"
+    },
+    {
+      "record_id": "SNA/2013/page_34.pdf-2",
+      "evidence_type": "both",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0adaed460c1839d9d053478800e6101e657daa832079fd3ec8dfeabfb6315480"
+    },
+    {
+      "record_id": "SNA/2018/page_31.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "multiply",
+      "selection_rank": "00a0f43ca9b3c07cc5c8451e6ebc654bcbe87aef707eb3eaef173adcc8bc9411"
+    },
+    {
+      "record_id": "STT/2006/page_95.pdf-1",
+      "evidence_type": "text",
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "0cf8cb5805cf6c2903e8cd7bb1dc300a61e06866208a930d9f4cacf30847f8a3"
+    },
+    {
+      "record_id": "TFX/2017/page_78.pdf-3",
+      "evidence_type": "both",
+      "program_depth": "1",
+      "first_operation": "multiply",
+      "selection_rank": "1a47010e0df350b3a69c2b60eb23da33d488115eaf215e951d2fdbc6a6c84783"
+    },
+    {
+      "record_id": "TMUS/2017/page_29.pdf-1",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "0061110faee5b7bad8bd186cdf6523e8697f2b0ad038f9ec14f7be727eecfadd"
+    },
+    {
+      "record_id": "TMUS/2017/page_29.pdf-2",
+      "evidence_type": "table",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "01a92cdd71c23bd61bd28869cc543d80b14dcc94e6512f63ca506ccecdaef595"
+    },
+    {
+      "record_id": "UA/2007/page_70.pdf-2",
+      "evidence_type": "text",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "0da5c858e9aa29600ac13ff4ba1db9be616c3f4974826d4dd587167fe20dee3c"
+    },
+    {
+      "record_id": "UNP/2010/page_21.pdf-4",
+      "evidence_type": "both",
+      "program_depth": "3+",
+      "first_operation": "multiply",
+      "selection_rank": "643273f7e5a2994226740552f4f745d5b66bb39d3141dcbfc6a6fbe06aefcb0f"
+    },
+    {
+      "record_id": "UNP/2016/page_52.pdf-3",
+      "evidence_type": "both",
+      "program_depth": "3+",
+      "first_operation": "add",
+      "selection_rank": "558591b43d4dba445d63f3da81a88383f6685b2f4bb0d5b9900719ed5b52111d"
+    },
+    {
+      "record_id": "UNP/2016/page_52.pdf-4",
+      "evidence_type": "both",
+      "program_depth": "1",
+      "first_operation": "subtract",
+      "selection_rank": "0c18a4b2d3d8ed03ed719300a6cb3fafdf6f8cf8ce34d86a7a1e106cc3a97c77"
+    },
+    {
+      "record_id": "VRTX/2006/page_111.pdf-2",
+      "evidence_type": "both",
+      "program_depth": "1",
+      "first_operation": "divide",
+      "selection_rank": "19e2c4f8dbbc92b8dcacf74e32d0beb6ddca7fe5ebaf8047d1e8d282d4814ca7"
+    }
+  ]
+}
