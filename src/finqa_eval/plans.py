@@ -20,6 +20,8 @@ Operation = Literal[
     "average",
 ]
 
+NumericValue = Decimal | int | float
+
 
 class PlanValidationError(ValueError):
     """Raised when a calculation plan cannot be safely executed."""
@@ -30,7 +32,7 @@ class Operand(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
-    value: Decimal | None = None
+    value: NumericValue | None = None
     reference: int | None = None
 
     @model_validator(mode="after")
@@ -87,7 +89,10 @@ def execute_plan(plan: CalculationPlan) -> Decimal:
     results: list[Decimal] = []
 
     for step_index, step in enumerate(plan.steps):
-        values = [_resolve_operand(operand, results, step_index) for operand in step.operands]
+        values = [
+            _resolve_operand(operand, results, step_index)
+            for operand in step.operands
+        ]
         results.append(_execute_step(step.operation, values))
 
     return results[-1]
@@ -99,7 +104,7 @@ def _resolve_operand(
     current_step_index: int,
 ) -> Decimal:
     if operand.value is not None:
-        return operand.value
+        return Decimal(str(operand.value))
 
     assert operand.reference is not None
 
