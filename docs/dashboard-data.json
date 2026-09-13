@@ -1,0 +1,138 @@
+{
+  "title": "FinQA LLM Evaluation Lab",
+  "model": "gemini-3.5-flash-lite",
+  "evaluation_set": "96 locked numeric FinQA test records",
+  "overall": {
+    "total_results": 384,
+    "correct_answers": 165,
+    "accuracy_percent": 43.0,
+    "valid_outputs": 384,
+    "valid_output_percent": 100.0,
+    "errors": 0,
+    "plan_results": 192,
+    "executable_plans": 192,
+    "executable_plan_percent": 100.0,
+    "mean_latency_ms": 1155.8,
+    "median_latency_ms": 1117.0
+  },
+  "strategy_results": [
+    {
+      "strategy": "Direct Answer",
+      "accuracy_percent": 37.5,
+      "correct_answers": 36,
+      "total_results": 96,
+      "mean_latency_ms": 796.7
+    },
+    {
+      "strategy": "Structured Reasoning",
+      "accuracy_percent": 46.9,
+      "correct_answers": 45,
+      "total_results": 96,
+      "mean_latency_ms": 1249.1
+    },
+    {
+      "strategy": "Program-of-Thought",
+      "accuracy_percent": 40.6,
+      "correct_answers": 39,
+      "total_results": 96,
+      "mean_latency_ms": 1199.5
+    },
+    {
+      "strategy": "Few-shot PoT",
+      "accuracy_percent": 46.9,
+      "correct_answers": 45,
+      "total_results": 96,
+      "mean_latency_ms": 1377.9
+    }
+  ],
+  "evidence_type_results": [
+    {
+      "group": "both",
+      "sample_size": 22,
+      "accuracies": {
+        "Direct Answer": 22.7,
+        "Structured Reasoning": 45.5,
+        "Program-of-Thought": 31.8,
+        "Few-shot PoT": 40.9
+      }
+    },
+    {
+      "group": "table",
+      "sample_size": 48,
+      "accuracies": {
+        "Direct Answer": 52.1,
+        "Structured Reasoning": 54.2,
+        "Program-of-Thought": 54.2,
+        "Few-shot PoT": 56.2
+      }
+    },
+    {
+      "group": "text",
+      "sample_size": 26,
+      "accuracies": {
+        "Direct Answer": 23.1,
+        "Structured Reasoning": 34.6,
+        "Program-of-Thought": 23.1,
+        "Few-shot PoT": 34.6
+      }
+    }
+  ],
+  "program_depth_results": [
+    {
+      "group": "1",
+      "sample_size": 30,
+      "accuracies": {
+        "Direct Answer": 46.7,
+        "Structured Reasoning": 53.3,
+        "Program-of-Thought": 50.0,
+        "Few-shot PoT": 63.3
+      }
+    },
+    {
+      "group": "2",
+      "sample_size": 38,
+      "accuracies": {
+        "Direct Answer": 34.2,
+        "Structured Reasoning": 42.1,
+        "Program-of-Thought": 36.8,
+        "Few-shot PoT": 42.1
+      }
+    },
+    {
+      "group": "3+",
+      "sample_size": 28,
+      "accuracies": {
+        "Direct Answer": 32.1,
+        "Structured Reasoning": 46.4,
+        "Program-of-Thought": 35.7,
+        "Few-shot PoT": 35.7
+      }
+    }
+  ],
+  "failure_summary": {
+    "records_analysed": 96,
+    "all_strategies_correct": 30,
+    "all_strategies_incorrect": 44,
+    "direct_answer_wrong_structured_reasoning_correct": 10,
+    "direct_answer_wrong_few_shot_pot_correct": 13,
+    "structured_reasoning_only_correct": 3
+  },
+  "plan_consistency": {
+    "program_of_thought": {
+      "executable_plans": 96,
+      "plan_final_disagreement": 65,
+      "plan_correct": 24,
+      "final_answer_correct": 39,
+      "plan_wrong_final_answer_correct": 22,
+      "plan_correct_final_answer_wrong": 7
+    },
+    "few_shot_program_of_thought": {
+      "executable_plans": 96,
+      "plan_final_disagreement": 57,
+      "plan_correct": 24,
+      "final_answer_correct": 45,
+      "plan_wrong_final_answer_correct": 24,
+      "plan_correct_final_answer_wrong": 3
+    }
+  }
+}
