@@ -1,2 +1,203 @@
-# finqa-llm-evaluation-lab
-A reproducible evaluation lab for measuring how prompting strategies affect LLM financial reasoning.
+# FinQA LLM Evaluation Lab
+
+A reproducible evaluation project that compares LLM prompting strategies for financial question answering.
+
+## Why I built this
+
+Financial QA requires more than arithmetic. A model has to locate relevant information in financial-report text and tables, choose a calculation, and return a correct numerical answer.
+
+I built this project to test whether structured prompting and constrained Program-of-Thought outputs improve performance compared with a simple direct-answer prompt.
+
+## Current capabilities
+
+- Loads and validates FinQA records from local source data
+- Creates a locked 96-record numeric test manifest for reproducible evaluation
+- Evaluates four prompt strategies on the same records
+- Uses Pydantic schemas to validate structured model outputs
+- Executes Program-of-Thought plans through a restricted local calculation DSL
+- Saves each evaluation result to JSONL for checkpointing and resume support
+- Scores numeric answers and generates grouped analysis reports
+- Creates PNG charts for repository documentation
+- Includes 44 automated tests
+
+## Prompt strategies
+
+1. **Direct Answer** — requests only the final numerical answer.
+2. **Structured Reasoning** — requests evidence, a reasoning summary, and a final answer.
+3. **Program-of-Thought** — requests evidence and a restricted executable calculation plan.
+4. **Few-shot Program-of-Thought** — provides fixed development examples before requesting a calculation plan.
+
+## Results
+
+The evaluation used `gemini-3.5-flash-lite` on the same locked set of 96 FinQA test records.
+
+| Strategy | Correct | Accuracy |
+|---|---:|---:|
+| Direct Answer | 36 / 96 | 37.5% |
+| Structured Reasoning | 45 / 96 | 46.9% |
+| Program-of-Thought | 39 / 96 | 40.6% |
+| Few-shot Program-of-Thought | 45 / 96 | 46.9% |
+
+![Accuracy by prompting strategy](docs/assets/strategy_accuracy.png)
+
+Key findings:
+
+- Structured Reasoning and Few-shot Program-of-Thought tied for the best overall accuracy.
+- Structured Reasoning performed best on questions requiring both text and table evidence.
+- Few-shot Program-of-Thought performed best on one-step calculations.
+- Table-only questions were easier than text-only questions.
+- All 384 model outputs were valid, and all 192 generated calculation plans were executable.
+
+![Accuracy by evidence type](docs/assets/accuracy_by_evidence_type.png)
+
+![Accuracy by calculation depth](docs/assets/accuracy_by_program_depth.png)
+
+## Reliability checks
+
+| Check | Result |
+|---|---:|
+| Total evaluations | 384 |
+| Results per strategy | 96 |
+| Valid structured outputs | 384 / 384 |
+| Generation or execution errors | 0 |
+| Executable calculation plans | 192 / 192 |
+
+## Tech stack
+
+- Python
+- Google Gen AI SDK
+- Gemini 3.5 Flash Lite
+- Pydantic
+- Pytest
+- Matplotlib
+- JSONL result storage
+
+## Project structure
+
+```text
+src/finqa_eval/
+  analysis.py        # Metrics and grouped analysis
+  batch.py           # Checkpointed, rate-limited batch execution
+  config.py          # Local Gemini configuration
+  dataset.py         # FinQA loading and validation
+  few_shot.py        # Fixed development examples
+  gemini_client.py   # Structured Gemini client
+  plans.py           # Restricted calculation-plan DSL
+  prompts.py         # Prompt construction
+  results.py         # JSONL result storage
+  runner.py          # One-record evaluation logic
+  sampling.py        # Locked sample manifest
+  schemas.py         # Response schemas
+  scoring.py         # Numeric answer scoring
+
+scripts/
+  run_pilot.py
+  run_final_evaluation.py
+  analyze_results.py
+  generate_charts.py
+
+data/
+  evaluation/        # Locked evaluation manifest
+  results/           # Saved result files
+
+docs/
+  assets/            # Generated charts
+
+tests/
+```
+
+## Data source
+
+This project uses the [FinQA benchmark](https://arxiv.org/abs/2109.00122), a financial question-answering dataset based on company reports.
+
+The raw dataset is intentionally excluded from Git. Data provenance is documented in [docs/data_source.md](docs/data_source.md).
+
+## Local setup
+
+1. Clone the repository.
+
+```cmd
+git clone https://github.com/SS-Awan/finqa-llm-evaluation-lab.git
+cd finqa-llm-evaluation-lab
+```
+
+2. Create and activate a virtual environment.
+
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+3. Install dependencies.
+
+```cmd
+python -m pip install -e ".[dev]"
+```
+
+4. Clone the FinQA source data locally.
+
+```cmd
+git clone https://github.com/czyssrs/FinQA.git data/raw/finqa-source
+git -C data/raw/finqa-source checkout 0f16e2867befa6840783e58be38c9efb9229d742
+```
+
+5. Create a `.env` file from `.env.example`.
+
+```text
+GEMINI_API_KEY=your_api_key_here
+GEMINI_MODEL=gemini-3.5-flash-lite
+```
+
+Never commit `.env`.
+
+## Example commands
+
+Run tests:
+
+```cmd
+pytest
+```
+
+Run the saved-result analysis:
+
+```cmd
+python scripts\analyze_results.py
+```
+
+Generate charts:
+
+```cmd
+python scripts\generate_charts.py
+```
+
+Check the full evaluation configuration without sending API requests:
+
+```cmd
+python scripts\run_final_evaluation.py --dry-run
+```
+
+Run the full evaluation:
+
+```cmd
+python scripts\run_final_evaluation.py
+```
+
+The batch runner saves each completed result immediately. If interrupted, rerunning the same command resumes from saved record-strategy pairs.
+
+## Limitations
+
+- Results are from one model and one locked 96-record sample.
+- The analysis is descriptive and does not claim statistical significance.
+- Some operation categories have small sample sizes and are not overinterpreted.
+- The raw FinQA data and Gemini API access are external dependencies.
+
+## Next steps
+
+- Add failure-category analysis for incorrect answers
+- Add confidence intervals and paired strategy comparisons
+- Build a static results dashboard from saved evaluation files
+- Add GitHub Actions continuous integration
+
+## Author
+
+Sohaib Shahid Awan
