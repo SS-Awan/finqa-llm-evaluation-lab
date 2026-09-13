@@ -5,6 +5,7 @@
   "source_revision": "0f16e2867befa6840783e58be38c9efb9229d742",
   "selection_seed": "finqa-evaluation-lab-v1",
   "selection_method": "stratified deterministic hash ranking",
+  "eligibility_rule": "ground-truth answer parses as a number or percentage",
   "strata_quotas": {
     "table|1": 16,
     "table|2": 20,
@@ -102,13 +103,6 @@
       "selection_rank": "04cb778ca1e88c13519df4024377ec9ca1fe4548d78053a5f8dad1ef47c08f40"
     },
     {
-      "record_id": "ANET/2015/page_156.pdf-1",
-      "evidence_type": "both",
-      "program_depth": "2",
-      "first_operation": "multiply",
-      "selection_rank": "0faa63c1e7e6c5b5d63eb15fe80b531a47316e44cf818b13a2a51b78072e497b"
-    },
-    {
       "record_id": "AON/2007/page_171.pdf-3",
       "evidence_type": "table",
       "program_depth": "1",
@@ -156,6 +150,13 @@
       "program_depth": "2",
       "first_operation": "subtract",
       "selection_rank": "0b371b3f8c935a4c2ab78aacb3f0feeac5a03f7ba912bae870209bd305130d16"
+    },
+    {
+      "record_id": "BLL/2010/page_37.pdf-4",
+      "evidence_type": "both",
+      "program_depth": "1",
+      "first_operation": "add",
+      "selection_rank": "26eecf863e6111c1775f71994674c3509dc4c820f916263e30f1ac6010d106ed"
     },
     {
       "record_id": "CB/2008/page_229.pdf-2",
@@ -263,6 +264,13 @@
       "selection_rank": "01b8a2e6c0d469f04bd12c006761d5b86e43657d71708ffbdaf645949e564d12"
     },
     {
+      "record_id": "ETR/2016/page_150.pdf-4",
+      "evidence_type": "text",
+      "program_depth": "1",
+      "first_operation": "add",
+      "selection_rank": "10cd129e32203772039af6c1ab0d534beacb023b22c700dcff53fe744b877c3d"
+    },
+    {
       "record_id": "ETR/2016/page_374.pdf-1",
       "evidence_type": "text",
       "program_depth": "2",
@@ -333,13 +341,6 @@
       "selection_rank": "1046b1590c092f143782071a5462de8f2ddc414dc524932850b0f7cfa830c992"
     },
     {
-      "record_id": "GPN/2013/page_87.pdf-4",
-      "evidence_type": "both",
-      "program_depth": "1",
-      "first_operation": "add",
-      "selection_rank": "2107ecfeb3a5ff3a8a2770e8461dbe69e890b72d4a8bc67aff98b0380ea080de"
-    },
-    {
       "record_id": "GRMN/2008/page_85.pdf-2",
       "evidence_type": "table",
       "program_depth": "3+",
@@ -373,13 +374,6 @@
       "program_depth": "1",
       "first_operation": "divide",
       "selection_rank": "071ea2e6f9c9b505135461e22105a68dd9c814d01e6c77ace94f259aac8f9305"
-    },
-    {
-      "record_id": "HOLX/2009/page_127.pdf-4",
-      "evidence_type": "text",
-      "program_depth": "1",
-      "first_operation": "divide",
-      "selection_rank": "0fdf477ed6ebc148ec3b0b118cfc0ece1574dc30d3aea45070609c4b76ef6144"
     },
     {
       "record_id": "HWM/2015/page_173.pdf-1",
@@ -634,11 +628,11 @@
       "selection_rank": "0cf8cb5805cf6c2903e8cd7bb1dc300a61e06866208a930d9f4cacf30847f8a3"
     },
     {
-      "record_id": "TFX/2017/page_78.pdf-3",
+      "record_id": "STT/2009/page_25.pdf-2",
       "evidence_type": "both",
-      "program_depth": "1",
-      "first_operation": "multiply",
-      "selection_rank": "1a47010e0df350b3a69c2b60eb23da33d488115eaf215e951d2fdbc6a6c84783"
+      "program_depth": "2",
+      "first_operation": "subtract",
+      "selection_rank": "24192be86701cf69115212bff4b308a3634a3bc65c3a3e54b5e46c4348e659d3"
     },
     {
       "record_id": "TMUS/2017/page_29.pdf-1",
@@ -660,6 +654,13 @@
       "program_depth": "1",
       "first_operation": "divide",
       "selection_rank": "0da5c858e9aa29600ac13ff4ba1db9be616c3f4974826d4dd587167fe20dee3c"
+    },
+    {
+      "record_id": "UNP/2010/page_21.pdf-3",
+      "evidence_type": "both",
+      "program_depth": "1",
+      "first_operation": "multiply",
+      "selection_rank": "22066909ea8a49532cc18ead8af99d61a8a747bcf8d4a795fd4fd6f4bdc64eed"
     },
     {
       "record_id": "UNP/2010/page_21.pdf-4",

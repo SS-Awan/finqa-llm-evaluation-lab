@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Mapping
 
 from finqa_eval.dataset import FinQARecord
+from finqa_eval.scoring import is_numeric_answer
 
 
 Stratum = tuple[str, str]
@@ -74,6 +75,9 @@ def build_evaluation_manifest(
     grouped_records: dict[Stratum, list[FinQARecord]] = defaultdict(list)
 
     for record in records:
+        if not is_numeric_answer(record.answer):
+            continue
+
         stratum = (evidence_type(record), program_depth(record))
         if stratum in quotas:
             grouped_records[stratum].append(record)
@@ -85,7 +89,7 @@ def build_evaluation_manifest(
 
         if len(candidates) < quota:
             raise ValueError(
-                f"Stratum {stratum} has {len(candidates)} records, "
+                f"Stratum {stratum} has {len(candidates)} eligible records, "
                 f"but the requested quota is {quota}."
             )
 
@@ -116,6 +120,7 @@ def build_evaluation_manifest(
         "source_revision": source_revision,
         "selection_seed": seed,
         "selection_method": "stratified deterministic hash ranking",
+        "eligibility_rule": "ground-truth answer parses as a number or percentage",
         "strata_quotas": {
             f"{evidence}|{depth}": quota
             for (evidence, depth), quota in quotas.items()
