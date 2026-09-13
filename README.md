@@ -1,6 +1,10 @@
 # FinQA LLM Evaluation Lab
 
+[![Tests](https://github.com/SS-Awan/finqa-llm-evaluation-lab/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/SS-Awan/finqa-llm-evaluation-lab/actions/workflows/ci.yml)
+
 A reproducible evaluation project that compares LLM prompting strategies for financial question answering.
+
+**Live dashboard:** [View the deployed evaluation dashboard](https://ss-awan.github.io/finqa-llm-evaluation-lab/)
 
 ## Why I built this
 
@@ -18,7 +22,16 @@ I built this project to test whether structured prompting and constrained Progra
 - Saves each evaluation result to JSONL for checkpointing and resume support
 - Scores numeric answers and generates grouped analysis reports
 - Creates PNG charts for repository documentation
-- Includes 44 automated tests
+- Includes a deployed static dashboard built from saved results
+- Includes 44 automated tests and GitHub Actions CI
+
+## Live dashboard
+
+The public dashboard presents the saved evaluation results, strategy comparison, reliability checks, question-type charts, and plan-consistency analysis.
+
+[Open the FinQA LLM Evaluation Dashboard](https://ss-awan.github.io/finqa-llm-evaluation-lab/)
+
+The dashboard uses committed static files only. It makes no live Gemini requests and does not expose an API key.
 
 ## Prompt strategies
 
@@ -62,6 +75,26 @@ Key findings:
 | Generation or execution errors | 0 |
 | Executable calculation plans | 192 / 192 |
 
+## Failure analysis
+
+The project separately analyses strategy disagreements and plan consistency.
+
+| Finding | Result |
+|---|---:|
+| Records solved by all strategies | 30 |
+| Records solved by no strategy | 44 |
+| Direct Answer wrong, Structured Reasoning correct | 10 |
+| Direct Answer wrong, Few-shot PoT correct | 13 |
+
+A key result is that a plan can be structurally valid and executable without being financially correct:
+
+| Strategy | Executable plans | Plan matched gold answer | Final answer matched gold | Plan/final disagreement |
+|---|---:|---:|---:|---:|
+| Program-of-Thought | 96 | 24 | 39 | 65 |
+| Few-shot Program-of-Thought | 96 | 24 | 45 | 57 |
+
+This distinction is why the evaluator reports plan validity, executed-plan output, and final-answer accuracy separately.
+
 ## Tech stack
 
 - Python
@@ -71,37 +104,47 @@ Key findings:
 - Pytest
 - Matplotlib
 - JSONL result storage
+- GitHub Actions
+- GitHub Pages
 
 ## Project structure
 
 ```text
+.github/
+  workflows/
+    ci.yml                    # Automated test workflow
+
 src/finqa_eval/
-  analysis.py        # Metrics and grouped analysis
-  batch.py           # Checkpointed, rate-limited batch execution
-  config.py          # Local Gemini configuration
-  dataset.py         # FinQA loading and validation
-  few_shot.py        # Fixed development examples
-  gemini_client.py   # Structured Gemini client
-  plans.py           # Restricted calculation-plan DSL
-  prompts.py         # Prompt construction
-  results.py         # JSONL result storage
-  runner.py          # One-record evaluation logic
-  sampling.py        # Locked sample manifest
-  schemas.py         # Response schemas
-  scoring.py         # Numeric answer scoring
+  analysis.py                 # Metrics and grouped analysis
+  batch.py                    # Checkpointed, rate-limited batch execution
+  config.py                   # Local Gemini configuration
+  dataset.py                  # FinQA loading and validation
+  few_shot.py                 # Fixed development examples
+  gemini_client.py            # Structured Gemini client
+  plans.py                    # Restricted calculation-plan DSL
+  prompts.py                  # Prompt construction
+  results.py                  # JSONL result storage
+  runner.py                   # One-record evaluation logic
+  sampling.py                 # Locked sample manifest
+  schemas.py                  # Response schemas
+  scoring.py                  # Numeric answer scoring
 
 scripts/
   run_pilot.py
   run_final_evaluation.py
   analyze_results.py
+  analyze_failures.py
+  build_dashboard_data.py
   generate_charts.py
 
 data/
-  evaluation/        # Locked evaluation manifest
-  results/           # Saved result files
+  evaluation/                 # Locked evaluation manifest
+  results/                    # Saved result files
 
 docs/
-  assets/            # Generated charts
+  assets/                     # Generated charts
+  dashboard-data.json         # Static dashboard data
+  index.html                  # GitHub Pages dashboard
 
 tests/
 ```
@@ -164,10 +207,22 @@ Run the saved-result analysis:
 python scripts\analyze_results.py
 ```
 
+Run the plan-consistency and failure analysis:
+
+```cmd
+python scripts\analyze_failures.py
+```
+
 Generate charts:
 
 ```cmd
 python scripts\generate_charts.py
+```
+
+Build static dashboard data:
+
+```cmd
+python scripts\build_dashboard_data.py
 ```
 
 Check the full evaluation configuration without sending API requests:
@@ -189,14 +244,14 @@ The batch runner saves each completed result immediately. If interrupted, rerunn
 - Results are from one model and one locked 96-record sample.
 - The analysis is descriptive and does not claim statistical significance.
 - Some operation categories have small sample sizes and are not overinterpreted.
-- The raw FinQA data and Gemini API access are external dependencies.
+- FinQA source data and Gemini API access are external dependencies.
 
 ## Next steps
 
-- Add failure-category analysis for incorrect answers
-- Add confidence intervals and paired strategy comparisons
-- Build a static results dashboard from saved evaluation files
-- Add GitHub Actions continuous integration
+- Add formal paired statistical comparisons between prompting strategies
+- Run the same locked manifest on additional models
+- Expand the evaluation set while preserving the existing frozen benchmark
+- Add error-category labels for qualitative review
 
 ## Author
 
